@@ -13,7 +13,7 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Id;
 
 /**
- * @author samy
+ * @author Gowri Update
  *
  */
 @Entity
