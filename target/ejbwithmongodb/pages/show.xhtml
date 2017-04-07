@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Sample Title</title>
+</h:head>
+<h:body>
+	<h1>View page</h1>
+	<center>
+		<h:form>
+			<h:dataTable value="#{userController.user}" var="user" id="usertable"
+				widgetVar="userTable">
+				<h:column>Name:#{user.name}<br />
+						Gender:#{user.gender}<br />
+						Email:#{user.email}<br />
+						PhoneNo:#{user.phoneNo}<br />
+						</h:column>
+			</h:dataTable>
+
+		</h:form>
+	</center>
+</h:body>
+</html>

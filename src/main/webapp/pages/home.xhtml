@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Sample Title</title>
+</h:head>
+<h:body>
+	<h1>Test Home PAge</h1>
+	<h:form>
+		<center>
+			<table>
+				<tr>
+					<td><h:outputLabel value="Name:"></h:outputLabel></td>
+					<td><p:inputText value="#{userController.user.name}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Password:"></h:outputLabel></td>
+					<td><p:inputSecret value="#{userController.user.password}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Gender:"></h:outputLabel></td>
+					<td><h:selectOneRadio value="#{userController.user.gender}">
+							<f:selectItem itemValue="male" itemLabel="Male" />
+							<f:selectItem itemValue="female" itemLabel="Female" />
+						</h:selectOneRadio></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Email:"></h:outputLabel></td>
+					<td><p:inputText value="#{userController.user.email}" /></td>
+				</tr>
+
+				<tr>
+					<td><h:outputLabel value="PhoneNumber:"></h:outputLabel></td>
+					<td><p:inputText value="#{userController.user.phoneNo}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Phone Type"></h:outputLabel></td>
+					<td><h:selectOneMenu value="#{userController.user.phoneType}">
+							<f:selectItem itemValue="Andriod" itemLabel="Andriod" />
+							<f:selectItem itemValue="Ios" itemLabel="Ios" />
+							<f:selectItem itemValue="Black berry" itemLabel="Black berry" />
+							<f:selectItem itemValue="Windows" itemLabel="Windows" />
+						</h:selectOneMenu></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Country:"></h:outputLabel></td>
+					<td><h:selectOneMenu value="#{userController.user.country}">
+							<f:selectItem itemValue="china" itemLabel="China" />
+							<f:selectItem itemValue="India" itemLabel="India" />
+							<f:selectItem itemValue="USA" itemLabel="USA" />
+							<f:selectItem itemValue="Kozani" itemLabel="Kozani" />
+							<f:selectItem itemValue="Kavala" itemLabel="Kavala" />
+							<f:selectItem itemValue="Thessaloniki"
+								itemLabel="City - Thessaloniki" />
+						</h:selectOneMenu></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Address:"></h:outputLabel></td>
+					<td><h:inputTextarea value="#{userController.user.address}"
+							cols="30" rows="10" /></td>
+				</tr>
+				<tr>
+					<td><p:commandButton type="submit" value="Save"
+							action="#{userController.doSave}"  ajax="false"  /></td>
+					<td><h:commandButton type="reset" value="Reset"
+							action="#{userController.reset}" /></td>
+				</tr>
+			</table>
+		</center>
+	</h:form>
+</h:body>
+</html>

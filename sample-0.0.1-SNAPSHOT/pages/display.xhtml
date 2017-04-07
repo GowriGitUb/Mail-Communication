@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Sample Title</title>
+</h:head>
+<h:body>
+	<h1>Test Display Page</h1>
+	<center>
+		<h:form>
+			<h:commandLink action="#{userController.showAddPage}" ajax="false">
+				<p:graphicImage value="/resources/images/add-contact.png"
+					style="height:25px;padding-left:10px; vertical-align:middle"></p:graphicImage>
+				<h:outputText value="Add" />
+			</h:commandLink>
+
+			<h:dataTable value="#{userController.users}" var="user" 
+			paginator="true" rows="10" paginatorPosition="top"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15"
+				id="usertable" widgetVar="userTable">
+
+				<!-- <h:column id="name" sortBy="#{user.name}">
+					<f:facet name="header">Name</f:facet>
+				#{user.name}
+					<h:outputText value="#{user.name}">
+					</h:outputText>
+				</h:column> -->
+				<p:column sortBy="#{userController.user.name}">
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{user.name}" />
+				</p:column>
+				<h:column sortBy="#{user.gender}">
+					<f:facet name="header">Gender</f:facet>
+				#{user.gender}
+   </h:column>
+				<h:column sortBy="#{user.email}">
+					<f:facet name="header">Email</f:facet>
+				#{user.email}
+   </h:column>
+				<h:column sortBy="#{user.phoneNo}">
+					<f:facet name="header">Phone No</f:facet>
+				#{user.phoneNo}
+   </h:column>
+				<h:column>
+					<h:commandLink action="#{userController.show(user.userId)}"
+						ajax="false">
+						<p:graphicImage value="/resources/images/view_1.png"
+							style="height:25px;padding-left:10px; vertical-align:middle"></p:graphicImage>
+						<!-- <h:outputText value="Delete" /> -->
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{userController.edit(user.userId)}"
+						ajax="false">
+						<p:graphicImage value="/resources/images/edit.png"
+							style="height:25px;padding-left:10px; vertical-align:middle"></p:graphicImage>
+						<!-- <h:outputText value="Delete" /> -->
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{userController.delete(user.userId)}"
+						ajax="false">
+						<p:graphicImage value="/resources/images/delete.png"
+							style="height:25px;padding-left:10px; vertical-align:middle"></p:graphicImage>
+						<!-- <h:outputText value="Delete" /> -->
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</center>
+</h:body>
+</html>
